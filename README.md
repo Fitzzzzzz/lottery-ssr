@@ -1,8 +1,9 @@
-# lottery-ssr
+#A Nuxt.js SSR project (rebuild)
+## lottery-ssr
 
 > Vue.js SSR project
 
-## Build Setup
+### Build Setup
 
 ``` bash
 # install dependencies
@@ -20,3 +21,4 @@ $ npm run generate
 ```
 
 For detailed explanation on how things work, checkout the [Nuxt.js docs](https://github.com/nuxt/nuxt.js).
+
