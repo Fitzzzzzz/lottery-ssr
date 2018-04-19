@@ -19,7 +19,7 @@
         <card :header="{title: '登陆了吗？'}" class="card">
           <div slot="content">
             <span class="span">先去登陆吧</span>
-            <x-button type="primary" link="signin">登陆</x-button>
+            <x-button type="primary" link="sign-in">登陆</x-button>
           </div>
         </card>        
       </x-dialog>
@@ -44,12 +44,16 @@
       'lotteryStatus'
     ],
     mounted () {
-      this.checkerType = this.config.selectType === 'single' ? 'radio' : 'checkbox'
-      let echartsDOM = document.getElementById('echarts-dom')
-      let iEcharts = echarts.init(echartsDOM)
-      this.$echartsDOM = iEcharts
-      iEcharts.setOption(this.option)
-      this.$socket.emit('identify by id', this.$route.query.id)
+      if (!this.$store.state.isLogIn) {
+        this.$store.commit('setPreHref', {preHref: document.location.href})
+      } else {
+        this.checkerType = this.config.selectType === 'single' ? 'radio' : 'checkbox'
+        let echartsDOM = document.getElementById('echarts-dom')
+        let iEcharts = echarts.init(echartsDOM)
+        this.$echartsDOM = iEcharts
+        iEcharts.setOption(this.option)
+        this.$socket.emit('identify by id', this.$route.query.id)
+      }
     },
     beforeDestroy () {
       this.$socket.emit('leave room by id', this.$route.query.id)

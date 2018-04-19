@@ -4,15 +4,15 @@ export default function ({ route, store, redirect, query }) {
   switch (route.matched[0].name) {
     case 'profile' :
       if (!store.state.isLogIn) {
-        redirect('/signin')
+        redirect('/sign-in')
         return
       }
       store.commit('setAppPath', { path: '个人中心' })
       break
-    case 'signin' :
+    case 'sign-in' :
       store.commit('setAppPath', { path: '登陆' })
       break
-    case 'signup' :
+    case 'sign-up' :
       store.commit('setAppPath', { path: '注册' })
       break
     case 'detail' :
@@ -24,7 +24,7 @@ export default function ({ route, store, redirect, query }) {
     case 'type' :
       if (!store.state.isLogIn) {
         store.commit('setEntryPath', { entryPath: 'type' })
-        next('signin')
+        redirect('/sign-in')
         break
       }
       store.commit('setAppPath', { path: '类型' })

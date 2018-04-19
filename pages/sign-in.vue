@@ -5,7 +5,7 @@
       <x-input v-model="password" title="密码" placeholder="至少包含英文字母和简单字符" type="password" label-width="80px" novalidate :show-clear="false" placeholder-align="right" text-align="right"></x-input>    
     </group>
     <div id="sign-up">
-      <router-link to="/signup">没有账号？</router-link>
+      <router-link to="/sign-up">没有账号？</router-link>
     </div>
     <div style="padding:15px;">
       <x-button type="primary" @click.native="signIn" action-type="submit">登陆</x-button>
@@ -37,6 +37,9 @@
               this.$router.push(this.$store.state.entryPath)
             } else {
               this.$router.push('profile')
+            }
+            if (this.$store.state.preHref.length) {
+              window.location.href = this.$store.state.preHref
             }
           } else if (response.data.errorcode === 2) {
             this.$vux.toast.show({

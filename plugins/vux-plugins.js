@@ -10,6 +10,6 @@ Vue.use(ConfirmPlugin)
 Vue.use(WechatPlugin)
 Vue.use(BusPlugin)
 Vue.use(AjaxPlugin)
-Vue.http.defaults.baseURL = 'http://localhost:3333'
+Vue.http.defaults.baseURL = `http://${document.domain}:3000`
 
 Vue.directive('transfer-dom', TransferDom)

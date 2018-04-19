@@ -68,6 +68,6 @@ module.exports = {
       }
   },
   router: {
-    middleware: 'routerGuard'
+    middleware: 'router-guard'
   }  
 }
