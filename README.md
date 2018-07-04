@@ -2,6 +2,7 @@
 ## lottery-ssr
 
 > Vue.js SSR project
+Test of git branch
 
 ### Build Setup
 
